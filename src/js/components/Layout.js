@@ -1,5 +1,5 @@
 import React from "react";
-import Todolist from "./Todolist.js";
+import Dashboard from "./Dashboard.js";
 
 export default class Layout extends React.Component {
   render() {
@@ -11,7 +11,6 @@ export default class Layout extends React.Component {
   	}
     return (
       <div>
-      	<h1 style={titleStyle}>Today is {Date().toString()}, Do not forget to</h1>
         {this.props.children}
       </div>
     );
