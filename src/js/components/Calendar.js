@@ -1,5 +1,8 @@
 import React from "react";
 import Dashboard from "./Dashboard.js";
+import Timeline from "./Timeline.js";
+import Days from "./Days.js";
+import Week from "./Week.js";
 
 export default class Calendar extends React.Component {
   render() {
@@ -23,7 +26,9 @@ export default class Calendar extends React.Component {
   	}
 
     return (
-      <div> 
+      <div>
+        <Timeline />
+        <Week />
       </div>
     );
   }
