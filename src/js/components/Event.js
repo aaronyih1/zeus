@@ -4,15 +4,32 @@ import Dashboard from "./Dashboard.js";
 
 export default class Event extends React.Component {
   render() {
-  	console.log(this.props.bgcolor);
+    const width = (((this.props.end - this.props.start)/86400000)*100) + "%";
+    const color = sortColor(this.props.category);
+    const text = this.props.text
+    function sortColor(category){
+      switch(category){
+        case "health":
+          return("#D8495B");
+        case "work":
+          return("#5C92D1");
+        case "love":
+          return("#2CAF38");
+        case "play":
+          return("#FFB438")
+        default :
+          return("black");
+      };
+    }
   	const eventStyle = {
-  		backgroundColor: this.props.bgcolor,
-  		width: '200px',
+  		backgroundColor: color,
+  		width: width,
   		height: '100%',
-  		display: 'inline-block'
+  		display: 'inline-block',
+      overflow: 'hidden'
   	}
     return (
-      <div style={eventStyle}></div>
+      <div style={eventStyle}>{text}</div>
     );
   }
 }

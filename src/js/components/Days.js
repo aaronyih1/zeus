@@ -4,30 +4,19 @@ import Event from "./Event.js";
 
 export default class Days extends React.Component {
   render() {
-  	const items = [{
-  		"id": 1,
-  		"text": "thing1",
-  		"color": "red",
-  		"duration": "100px",
-  	},
-  	{
-  		"id": 2,
-  		"text": "thing2",
-  		"color": "blue",
-  		"duration": "600px",
-  	}];
+  	const events = this.props.events;
   	const dayContainerStyle ={
   		width:'100%',
   		height: '40px',
   		backgroundColor:'grey',
-  		whiteSpace: 'nowrap'
+  		whiteSpace: 'nowrap',
+      marginBottom: '30px'
   	}
-  	const dynanicDayStyle = {
-  		backgroundColor: items[0].color,
-  	}
-  	const EventsComponent = items.map((event)=>{
-  		console.log(event.color);
-  		return <Event key={Date.now()} bgcolor={event.color}/>
+  	// const dynanicDayStyle = {
+  	// 	backgroundColor: items[0].color,
+  	// }
+  	const EventsComponent = events.map((event)=>{
+  		return <Event key={event.startTime} category={event.category} start={event.startTime} end={event.endTime} text={event.text}/>
   	});
     return (
     	<div style={dayContainerStyle}>

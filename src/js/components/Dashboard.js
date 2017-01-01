@@ -1,6 +1,6 @@
 import React from "react";
-import TodoStore from "../stores/TodoStore.js";
-import * as TodoActions from "../actions/TodoActions.js";
+import EventStore from "../stores/EventStore.js";
+import * as EventActions from "../actions/EventActions.js";
 import Header from "./Header.js";
 import Calendar from "./Calendar.js"
 
@@ -9,14 +9,14 @@ export default class Dashboard extends React.Component {
 	constructor(){
 	  super();
 	  this.state = {
-	    todos: TodoStore.getAll(),
+	    data: EventStore.getAll(),
 	  };
 	}
 	componentWillMount() {
-		TodoActions.returnTodos();
-		TodoStore.on("change", () => {
+		EventActions.returnTodos();
+		EventStore.on("change", () => {
 			this.setState({
-				todos: TodoStore.getAll(),
+				data: EventStore.getAll(),
 			});
 		});
 	}
@@ -28,22 +28,22 @@ export default class Dashboard extends React.Component {
 		this.changeTodo(todo);
 	}
 	updateTodos(action){
-		TodoActions.updateTodos(action);
+		EventActions.updateTodos(action);
 	}
 	createTodo(e){
 		if(e.key === 'Enter'){
-			TodoActions.pushTodo(e.target.value);
-			TodoActions.returnTodos();
+			EventActions.pushTodo(e.target.value);
+			EventActions.returnTodos();
 			this.state.todo = "";
 			e.target.value = "";
 		}
 	}
 	render(){
-		const {todos} = this.state;
+		const {data} = this.state;
 		return(
 			<div>
 				<Header />
-				<Calendar />
+				<Calendar items={data}/>
 			</div>
 		);
 	}
