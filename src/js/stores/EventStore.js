@@ -14,7 +14,8 @@ class EventStore extends EventEmitter {
 					text: "this is something to do",
 					category: "play",
 				}
-			]	
+			],
+			inputStatus: true	
 		},
 		{
 			date: 'Sun Jan 1 2016 15:22:31 GMT-0800 (PST)',
@@ -25,7 +26,8 @@ class EventStore extends EventEmitter {
 					text: "this is another somethiing to do",
 					category: "love",
 				}
-			]	
+			],
+			inputStatus: false	
 		}
 		];
 	}

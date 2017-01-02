@@ -25,8 +25,8 @@ export default class Calendar extends React.Component {
   	const leaveAt={
   		left: '70%'
   	}
-    const DaysComponent = items.map((event)=>{
-      return <Days key={event.date} events={event.events}/>
+    const DaysComponent = items.map((day)=>{
+      return <Days key={day.date} events={day.events} inputStat={day.inputStatus}/>
     });
     return (
       <div>

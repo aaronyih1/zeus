@@ -38,12 +38,15 @@ export default class Dashboard extends React.Component {
 			e.target.value = "";
 		}
 	}
+	revealInput(){
+		EventActions.generateInput();
+	}
 	render(){
 		const {data} = this.state;
 		return(
 			<div>
 				<Header />
-				<Calendar items={data}/>
+				<Calendar items={data} />
 			</div>
 		);
 	}
